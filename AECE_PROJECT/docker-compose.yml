@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aece
+      POSTGRES_USER: aece
+      POSTGRES_PASSWORD: aece
+    ports:
+      - "5432:5432"
+    volumes:
+      - aece_postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      # Pydantic settings use the field name (e.g. DATABASE_URL) by default.
+      DATABASE_URL: postgresql+psycopg://aece:aece@db:5432/aece
+      CORS_ORIGINS: "http://localhost:3000,http://127.0.0.1:3000"
+      AUTO_CREATE_TABLES: "true"
+      # Optional:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4.1-mini}
+
+volumes:
+  aece_postgres_data:
+
