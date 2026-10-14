@@ -198,11 +198,11 @@ Please avoid committing secrets, private data, or unverified claims about model 
 
 <div align="center">
 
-### Sakthivel R
+### SANJAY.S
 **B.Tech · Artificial Intelligence & Data Science**  
 Loyola Institute of Technology
 
-[![GitHub](https://img.shields.io/badge/GitHub-sakthi2006--creater-181717?style=for-the-badge&logo=github)](https://github.com/sakthi2006-creater)
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20AECE-00A99D?style=for-the-badge&logo=vercel&logoColor=white)](https://aece-8hpg.vercel.app/)
 
 </div>
